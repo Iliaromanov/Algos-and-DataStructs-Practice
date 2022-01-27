@@ -27,17 +27,14 @@ class Solution:
         head = cur
         
         while cur1 and cur2:
-            print(f"cur1: {cur1.val}, cur2: {cur2.val}")
             if cur1.val < cur2.val:
                 cur.next = ListNode(cur1.val, None)
                 cur1 = cur1.next
             else:
                 cur.next = ListNode(cur2.val, None)
-                cur2 = cur2.next
-                
+                cur2 = cur2.next        
             cur = cur.next 
-        
+
         if cur:
             cur.next = cur1 if cur1 else cur2
-            
         return head
