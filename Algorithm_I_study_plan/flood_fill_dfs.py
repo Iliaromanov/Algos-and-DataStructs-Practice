@@ -26,4 +26,3 @@ class Solution:
             image = self.flood_fill_dfs(image, row, col + 1, old_color, new_color, visited)
         
         return image
-        
