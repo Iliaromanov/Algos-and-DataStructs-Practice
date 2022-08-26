@@ -25,3 +25,27 @@ class Solution:
         slow.next  = slow.next.next if n > 1 else None
         
         return head
+
+
+# Better solution
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        l, r = head, head
+        i = 0
+        
+        if not r.next:
+            return None
+        
+        while r.next:
+            if i >= n:
+                l = l.next
+            
+            r = r.next
+            i += 1
+        
+        if i == n - 1:
+            return head.next
+        
+        l.next = l.next.next
+        
+        return head
