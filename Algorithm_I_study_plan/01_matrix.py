@@ -1,5 +1,39 @@
 from typing import List
 
+
+"""Efficient solution"""
+class Solution:
+    def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
+        width = len(mat)
+        height = len(mat[0])
+        
+        visited = set()
+        queue = []
+        
+        # mark all 0s as visited and add them to queue
+        for r in range(width):
+            for c in range(height):
+                if mat[r][c] == 0:
+                    visited.add((r, c))
+                    queue.append((r,c))
+                    
+        while queue:
+            r, c = queue.pop(0)
+            for i, j in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                new_r = r + i
+                new_c = c + j
+                
+                if 0 <= new_r < width and 0 <= new_c < height and (new_r, new_c) not in visited:
+                    # min dist to new is min dist to visited neighbor + 1
+                    mat[new_r][new_c] = mat[r][c] + 1
+                    visited.add((new_r, new_c))
+                    queue.append((new_r, new_c))
+        
+        return mat
+
+
+
+"""Inefficient solution"""
 class Solution:
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
         
