@@ -29,4 +29,31 @@ class Solution:
                         max_size = island_size
                         
         return max_size
+            
+
+class Solution:
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        max_area = 0
+        width = len(grid)
+        height = len(grid[0])
+        
+        def dfs(row, col, area):
+            grid[row][col] = 0
+            
+            for i, j in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                new_r = row + i
+                new_c = col + j
                 
+                if 0 <= new_r < width and 0 <= new_c < height and grid[new_r][new_c]:
+                    area += dfs(new_r, new_c, 1)
+                    
+            return area
+        
+        for r in range(width):
+            for c in range(height):
+                if grid[r][c]:
+                    a = dfs(r, c, 1)
+                    if a > max_area:
+                        max_area = a
+                        
+        return max_area
