@@ -21,6 +21,7 @@ def binary_search(array) -> int:
 ```
 
 ### Backtracking
+https://leetcode.com/problems/combinations/discuss/844096/Backtracking-cheatsheet-%2B-simple-solution 
 ```python
 def backtrack(candidate):
     if find_solution(candidate):
