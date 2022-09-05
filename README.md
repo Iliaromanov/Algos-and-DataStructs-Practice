@@ -17,7 +17,7 @@ def binary_search(array) -> int:
             right = mid
         else:
             left = mid + 1
-    return left # left is either the index of the found result or the index of where the result would be located (if its not there)
+    return left # left is either index of found result or index of where the result would be located (if its not there)
 ```
 
 ### Backtracking
