@@ -5,6 +5,7 @@ My solutions to LeetCode problems
 ## General Ideas/Templates
 
 ### Binary Search
+https://leetcode.com/problems/first-bad-version/discuss/769685/Python-Clear-explanation-Powerful-Ultimate-Binary-Search-Template.-Solved-many-problems
 ```python
 def binary_search(array) -> int:
     def condition(value) -> bool:
@@ -21,6 +22,7 @@ def binary_search(array) -> int:
 ```
 
 ### Backtracking
+https://leetcode.com/problems/combinations/discuss/844096/Backtracking-cheatsheet-%2B-simple-solution 
 ```python
 def backtrack(candidate):
     if find_solution(candidate):
