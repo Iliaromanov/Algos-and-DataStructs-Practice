@@ -26,4 +26,4 @@ class Solution:
             
         backtrace([], nums[:])
         
-        return list(result)
+        return list(result) 
