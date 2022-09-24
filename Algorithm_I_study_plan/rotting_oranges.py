@@ -89,3 +89,4 @@ class Solution:
         if to_rot_count:
             return -1
         return minutes
+ 
