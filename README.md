@@ -1,5 +1,5 @@
-# LeetCode-Solutions
-My solutions to LeetCode problems
+# Algorithms Practice
+My solutions to practice algorithm and data structure probles including my solutions to LeetCode problems
 
 
 ## General Ideas/Templates
