@@ -21,6 +21,8 @@ def binary_search(array) -> int:
     return left # left is either index of found result or index of where the result would be located (if its not there)
 ```
 
+----------------------------------------------------------------
+
 ### Backtracking
 https://leetcode.com/problems/combinations/discuss/844096/Backtracking-cheatsheet-%2B-simple-solution 
 ```python
@@ -39,6 +41,8 @@ def backtrack(candidate):
             # backtrack
             remove(next_candidate)
 ```
+
+----------------------------------------------------------------
 
 ### Memoization
 1. Make it work:
