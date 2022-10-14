@@ -39,3 +39,12 @@ def backtrack(candidate):
             # backtrack
             remove(next_candidate)
 ```
+
+### Memoization
+1. Make it work:
+    - Visualize problem as tree
+    - Implement tree using recursion
+3. Make it efficient:
+    - Add cache (ususally dict/hash map)
+    - Add base case to return value if its in cache
+    - Store result in cache before returning
