@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Dict, Tuple
 
 
 def can_sum_recursive(target: int, nums: List[int]) -> bool:
@@ -15,4 +15,28 @@ def can_sum_recursive(target: int, nums: List[int]) -> bool:
         if can_sum_recursive(target - nums[i], nums):
             return True
 
+    return False
+
+
+def can_sum_memo(target: int, nums: List[int], memo: Dict[int, bool] = {}) -> bool:
+    """
+    Returns True if target can be created by summing one or more numbers in nums
+    """    
+    if target == 0:
+        memo[target] = True
+        return True
+
+    if target < 0:
+        memo[target] = False
+        return False
+
+    if target in memo:
+        return memo[target]
+
+    for num in nums:
+        memo[target] = can_sum_memo(target - num, nums, memo)
+        if memo[target]:
+            return True
+
+    memo[target] = False
     return False
