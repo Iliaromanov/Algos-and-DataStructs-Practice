@@ -9,7 +9,9 @@ def best_sum(target: int, nums: List[int]) -> int:
     result = None
 
     def backtrack(target: int, subset: List[int]):
-        if target == 0 and (not result or len(subset) < result):
+        nonlocal result
+
+        if target == 0 and (not result or len(subset) < len(result)):
             result = subset[::]
             return
         if target < 0:
@@ -27,3 +29,5 @@ def best_sum(target: int, nums: List[int]) -> int:
     backtrack(target, [])
 
     return result
+
+print(best_sum(8, [2, 3, 5]))
