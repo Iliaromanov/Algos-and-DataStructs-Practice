@@ -1,6 +1,6 @@
 from typing import List
 
-def can_construct(target_word: str, word_bank: List[str]) -> bool:
+def can_construct(target_word: str, word_bank: List[str]) -> bool: # O(n^m) time
     """
     Returns true if target_word can be constructed by concatenating
     strings from the word_bank
@@ -16,7 +16,7 @@ def can_construct(target_word: str, word_bank: List[str]) -> bool:
     return False
 
 
-def can_construct_memo(target_word: str, word_bank: List[str], memo = {}) -> bool:
+def can_construct_memo(target_word: str, word_bank: List[str], memo = {}) -> bool: # O(m * n) time
     """
     Returns true if target_word can be constructed by concatenating
     strings from the word_bank
