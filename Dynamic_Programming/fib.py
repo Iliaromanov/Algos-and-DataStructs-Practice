@@ -20,4 +20,26 @@ def fib(n: int) -> int:
     return fib_helper(n)
 
 
+def fib_tabulation(n: int) -> int:
+    """
+    Returns nth fibonacci number
+    """
+    table = [0] * (n+1)
+
+    if len(table) >= 2:
+        table[1] = 1
+
+    if len(table) <= 2:
+        return table[n]
+
+    for i in range(len(table)):
+        if i+1 < len(table):
+            table[i+1] += table[i]
+        if i+2 < len(table):
+            table[i+2] += table[i]
+
+    return table[n]
+
+
 print(fib(7))
+print(fib_tabulation(7))
