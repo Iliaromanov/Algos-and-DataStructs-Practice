@@ -1,3 +1,5 @@
+
+"""Memoization Solution"""
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         solved = {}
@@ -18,3 +20,23 @@ class Solution:
             return solved[(m, n)]
         
         return dp(m, n)
+
+
+"""Tabulation Solution"""
+def grid_traveler(m, n):
+    table = [[0 for _ in range(n+1)] for _ in range(m+1)]
+    if n > 0 and m > 0:
+        table[1][1] = 1
+
+    for r in range(m+1):
+        for c in range(n+1):
+            if r+1 < m + 1:
+                table[r+1][c] += table[r][c]
+            if c+1 < n + 1:
+                table[r][c+1] += table[r][c]
+    
+    return table[m][n]
+
+
+
+print(grid_traveler(3, 3))
