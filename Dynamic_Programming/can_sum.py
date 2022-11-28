@@ -40,3 +40,15 @@ def can_sum_memo(target: int, nums: List[int], memo: Dict[int, bool] = {}) -> bo
 
     memo[target] = False
     return False
+
+
+def can_sum_tab(target: int, nums: List[int]) -> bool:
+    table = [False for _ in range(target+1)]
+    table[0] = True
+
+    for i, can_sum_to_i in enumerate(table):
+        for num in nums:
+            if can_sum_to_i and i + num < target + 1:
+                table[i+num] = True
+
+    return table[target]
