@@ -30,9 +30,9 @@ def grid_traveler(m, n):
 
     for r in range(m+1):
         for c in range(n+1):
-            if r+1 < m + 1:
+            if r < m:
                 table[r+1][c] += table[r][c]
-            if c+1 < n + 1:
+            if c < n:
                 table[r][c+1] += table[r][c]
     
     return table[m][n]
