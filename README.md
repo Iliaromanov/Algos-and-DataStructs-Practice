@@ -52,3 +52,14 @@ def backtrack(candidate):
     - Add cache (ususally dict/hash map)
     - Add base case to return value if its in cache
     - Store result in cache before returning
+    
+----------------------------------------------------------------
+
+## Tabulation
+1. Visualize problem as a table
+2. Size table based on inputs
+3. Initialize table with default values (usually this comes down to choosing the correct type)
+4. Seed the trivial answer into the table
+5. Iterate through the table
+6. Fill further positions in the table based on current position (to come up with this logic try to think about what options you have at each step of the problem)
+
