@@ -55,7 +55,7 @@ def backtrack(candidate):
     
 ----------------------------------------------------------------
 
-## Tabulation
+### Tabulation
 1. Visualize problem as a table
 2. Size table based on inputs
 3. Initialize table with default values (usually this comes down to choosing the correct type)
