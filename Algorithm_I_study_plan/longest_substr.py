@@ -26,3 +26,21 @@ class Solution:
             max_l = cur_l
             
         return max_l
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if len(s) <= 1:
+            return len(s)
+        max_len = 1
+        seen = { s[0]: 0 }
+        l, r = 0, 1
+        while r < len(s):
+            if s[r] in seen.keys() and seen[s[r]] >= l:
+                max_len = max(max_len, r - l)
+                l = seen[s[r]] + 1
+            else:
+                max_len = max(max_len, r - l + 1)
+            seen[s[r]] = r
+            r += 1
+        
+        return max_len
