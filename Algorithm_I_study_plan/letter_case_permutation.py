@@ -22,3 +22,23 @@ class Solution:
         backtracking("", 0)
         
         return result
+
+
+class Solution:
+    def letterCasePermutation(self, s: str) -> List[str]:
+        result = []
+
+        def backtrack(cur_s, remaining):
+            if not remaining:
+                result.append(cur_s)
+                return
+
+            if remaining[0].isalpha():
+                backtrack(cur_s+remaining[0].lower(), remaining[1:])
+                backtrack(cur_s+remaining[0].upper(), remaining[1:])
+            else:
+                backtrack(cur_s+remaining[0], remaining[1:])
+
+        backtrack("", s)
+
+        return result
