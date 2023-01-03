@@ -43,3 +43,24 @@ class Solution:
         bfs()
         
         return root
+
+
+class Solution:
+    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        if not root or not root.left:
+            return root
+
+        queue = [root]
+
+        while queue:
+            cur_size = len(queue)
+            for i in range(cur_size):
+                cur = queue.pop(0)
+                if i < cur_size - 1:
+                    cur.next = queue[0]
+
+                if cur.left:
+                    queue.append(cur.left)
+                    queue.append(cur.right)
+        
+        return root
