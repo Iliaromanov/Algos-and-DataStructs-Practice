@@ -15,7 +15,6 @@ class Solution:
         for i, num in enumerate(nums):
             seen[num] = i
 
-
         # O(n^2)
         i = 0
         while i < len(nums):
@@ -36,5 +35,39 @@ class Solution:
             
             i = seen[num1] # set i to last occurence of num1 to avoid duplicates
             i += 1
+
+        return result
+
+# Alternate solution
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        nums = sorted(nums) # O(n*logn)
+        result = []
+        known = {}
+
+        # hash the whole array to know latest occurences
+        for i, num in enumerate(nums):
+            known[num] = i
+
+        def twoSum(nums, num1): # O(n)
+            nonlocal result
+            l, r = 0, len(nums) - 1
+
+            while l < r:
+                triple = [num1, nums[l], nums[r]]
+                if sum(triple) == 0 and (not result or result[-1] != triple):
+                    result.append(triple)
+                    l += 1
+                elif sum(triple) < 0:
+                    l += 1
+                else:
+                    r -= 1
+
+        k = 0
+        while k < len(nums):
+            if nums[k] > 0:
+                break
+            twoSum(nums[k+1:], nums[k])
+            k = known[nums[k]] + 1 # jump to latest occurence and increment
 
         return result
