@@ -6,6 +6,7 @@ using namespace std;
 class Solution {
 public:
     vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
+        vector<int> DIR = {0, 1, 0, -1, 0};
         int height = mat.size();
         int width = mat[0].size();
         vector<vector<bool>> visited(height, vector<bool>(width, false));
@@ -23,15 +24,14 @@ public:
         while (not q.empty()) {
             pair<int, int> coords = q.front();
             q.pop();
-            vector<pair<int, int>> trans = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
-            for (auto t : trans) {
-                int row = coords.first + t.first;
-                int col = coords.second + t.second;
+            for (int i = 0; i < 4; ++i) {
+                int row = coords.first + DIR[i];
+                int col = coords.second + DIR[i+1];
                 if (0 <= row and row < height and 0 <= col and col < width and
                     not visited[row][col])
                 {
                     visited[row][col] = true;
-                    mat[row][col] += mat[coords.first][coords.second];
+                    mat[row][col] = mat[coords.first][coords.second] + 1;
                     q.emplace(row, col);
                 }
             }
