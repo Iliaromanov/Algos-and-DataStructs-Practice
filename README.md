@@ -63,3 +63,8 @@ def backtrack(candidate):
 5. Iterate through the table
 6. Fill further positions in the table based on current position (to come up with this logic try to think about what options you have at each step of the problem)
 
+----------------------------------------------------------------
+
+### String Matching
+#### KMP (best when matching non-english alphabet chars)
+#### Boyer-Moore (when matching english alphabet chars)
