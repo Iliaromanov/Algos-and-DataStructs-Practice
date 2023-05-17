@@ -63,3 +63,47 @@ def backtrack(candidate):
 5. Iterate through the table
 6. Fill further positions in the table based on current position (to come up with this logic try to think about what options you have at each step of the problem)
 
+----------------------------------------------------------------
+
+### String Matching
+*Let T be the string that we are searching, P be the substring/pattern whose occurence we're strying to find, and let A be all possible chars that T and P can consist of. Let n = len(T) and m = len(P). We need to return the index of the first occurence of P in T.*
+#### Boyer-Moore (when all of *A* is known and of reasonably small size; eg. A={english alphabet})
+**idea**: 
+
+- let j be index in P we are currently looking at, and i be the index in T we are currently looking at.
+          
+- compare from end of pattern (so start at i = j = m - 1)
+
+- let L be last occurence array/map where L[c] is the index of the last occurence of char c in P. 
+  If c is not in P, L[c] = -1
+
+- 3 Cases:
+    - If T[i] not in P, then our pattern match check to start at T[i+1] (so j = m - 1, i += m)
+    - If L[T[i]] < j (last occurence on the left of where we're comparing), move our pattern P so that the last occurence of T[i] in P matches with T at i.
+    - If L[T[i]] > j (last occurence on the right of where we're comparing), do brute force step (just shift P one char to right and re-compare again)
+
+**Pseudocode**:
+```python
+def computeL(P: str):
+    L = dictionary()
+    for index, char in P:
+        L[char] = index
+    return L
+    
+def matchString(T: str, P: str):
+    L = computeL(P)
+    i, j = m-1, m-1  # both i and j start matching from start of T at the end of P
+    while i < n and j >= 0:
+        if T[i] == P[j]: # matched char so decrement index at which we're checking
+            i -= 1
+            j -= 1
+        else:
+            # this formula captures all 3 cases above
+            #   consult cs240 slides for further intuition
+            i += m - 1 - min(L[T[i]], j - 1)
+            j = m - 1
+    if j == -1:
+        return i+1  # found first occurence of P in T starting at i+1
+    return -1  # not found
+```
+#### KMP (best when matching non-english alphabet chars)
