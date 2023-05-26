@@ -6,7 +6,26 @@
  *     Right *TreeNode
  * }
  */
+
+ // cleaner recursive solution (my second attempt)
  func isSymmetric(root *TreeNode) bool {
+    return root == nil || helper(root.Left, root.Right)
+}
+
+func helper(left *TreeNode, right *TreeNode) bool {
+    if left == nil || right == nil {
+        return left == right;
+    }
+    if left.Val != right.Val {
+        return false;
+    }
+
+    return helper(left.Left, right.Right) && helper(left.Right, right.Left);
+}
+
+
+// complex BFS solution (my first attempt)
+ func isSymmetricBFS(root *TreeNode) bool {
     if root == nil {
         return true;
     }
