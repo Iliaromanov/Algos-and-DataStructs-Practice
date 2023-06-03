@@ -107,3 +107,22 @@ def matchString(T: str, P: str):
     return -1  # not found
 ```
 #### KMP (best when matching non-english alphabet chars)
+----------------------------------------------------------------
+
+### Boyer-Moore Majority Element
+```python
+def majorityElement(nums: List[int]) -> int:
+    candidate = 0
+    count = 0
+    for num in nums:
+        if num == candidate:
+            count++
+            continue
+        else:
+            count--
+            
+        if count <= 0:
+            candidate = num
+            count = 1
+    return candidate
+```
