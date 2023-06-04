@@ -5,7 +5,27 @@
  *     Next *ListNode
  * }
  */
- func reverseList(head *ListNode) *ListNode {
+ func reverseListIterative(head *ListNode) *ListNode {
+    if head == nil || head.Next == nil {
+      return head
+    }
+
+    var last *ListNode = nil
+    cur := head
+    next := head.Next
+    for true {
+      cur.Next = last
+      last = cur
+      if next == nil {
+        break
+      }
+      cur = next
+      next = next.Next
+    }
+    return cur
+}
+
+ func reverseListRecursive(head *ListNode) *ListNode {
     if head == nil || head.Next == nil {
       return head
     }
