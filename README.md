@@ -44,7 +44,7 @@ def backtrack(candidate):
 
 ----------------------------------------------------------------
 
-### Memoization
+### Memoization (Top Down)
 1. Make it work:
     - Visualize problem as tree
     - Implement tree using recursion
@@ -55,7 +55,7 @@ def backtrack(candidate):
     
 ----------------------------------------------------------------
 
-### Tabulation
+### Tabulation (Bottom Up)
 1. Visualize problem as a table
 2. Size table based on inputs
 3. Initialize table with default values (usually this comes down to choosing the correct type)
