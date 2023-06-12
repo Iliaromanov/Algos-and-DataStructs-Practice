@@ -1,3 +1,29 @@
+
+
+func searchCleaner(nums []int, target int) int {
+    l, r := 0, len(nums) - 1
+    for l <= r {
+        mid := (l + r) / 2
+        if nums[mid] == target {
+            return mid
+        } else if nums[l] <= nums[mid] { // left side sorted part
+            if nums[mid] < target || target < nums[l] {
+                l = mid + 1
+            } else {
+                r = mid - 1
+            }
+        } else { // right side sorted part
+            if nums[mid] > target || target > nums[r] {
+                r = mid - 1
+            } else {
+                l = mid + 1
+            }
+        }
+    }
+    return -1
+}
+
+
 func search(nums []int, target int) int {
     // find index of min
     lo, hi := 0, len(nums) - 1
