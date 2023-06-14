@@ -1,5 +1,5 @@
 # Algorithms Practice
-My solutions to practice algorithm and data structure problems including my solutions to LeetCodes and implementations of important/notable data structures
+My solutions to practice algorithm and data structure problems including my solutions to LeetCodes and implementations of important/notable data structures.
 
 
 ## General Ideas/Templates
