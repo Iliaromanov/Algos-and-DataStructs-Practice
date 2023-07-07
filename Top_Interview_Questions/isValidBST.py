@@ -6,6 +6,28 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        stack = [root]
+        prev = None
+        while stack:
+            top = stack[-1]
+            if top.left is not None:
+                stack.append(top.left)
+                top.left = None
+                continue
+
+            cur = stack.pop().val
+            if prev is not None and cur <= prev:
+                return False
+            prev = cur
+
+            if top.right is not None:
+                stack.append(top.right)
+
+        return True
+    
+    
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
         def isValidSubBST(root: Optional[TreeNode], local_min: Optional[int], local_max: Optional[int]):
             if root is None: return True
             return (
@@ -19,3 +41,4 @@ class Solution:
             )
         return (isValidSubBST(root.left, None, root.val) and 
                 isValidSubBST(root.right, root.val, None))
+    
