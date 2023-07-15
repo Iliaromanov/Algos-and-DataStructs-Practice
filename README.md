@@ -2,7 +2,7 @@
 My solutions to practice algorithm and data structure problems including my solutions to LeetCodes and implementations of important/notable data structures.
 
 
-## General Ideas/Templates
+## General Algorithm Templates
 
 ### Binary Search
 https://leetcode.com/problems/first-bad-version/discuss/769685/Python-Clear-explanation-Powerful-Ultimate-Binary-Search-Template.-Solved-many-problems
