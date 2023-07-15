@@ -1,5 +1,7 @@
 # Data Structures
 
+Information on data structures that I find important but also non-trivial
+
 ## HashSet
 
 A hash set is set implemented using a hash table. The `set` type in Pythons is a hash set.
@@ -13,3 +15,9 @@ A hash set is set implemented using a hash table. The `set` type in Pythons is a
 `s & t` (Intersection)  - Time Complexity O(len(s)+len(t))
 
 `s - t` (Difference) - Time Complexity O(len(s))
+
+
+## Heap
+
+
+## Trie
