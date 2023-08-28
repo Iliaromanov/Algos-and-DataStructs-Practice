@@ -127,3 +127,11 @@ def majorityElement(nums: List[int]) -> int:
             count = 1
     return candidate
 ```
+    
+----------------------------------------------------------------
+
+### Finding Cycle in Directed Graph / Getting Topological Ordering
+
+Below Link explains DFS algo for finding cycle and BFS algo (Kahn's algo) for finding topo ordering.
+
+https://leetcode.com/problems/course-schedule/solutions/441722/python-99-time-and-100-space-collection-of-solutions-with-explanation/
