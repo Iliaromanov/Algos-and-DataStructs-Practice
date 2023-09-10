@@ -168,6 +168,7 @@ def detectCycle(adjacencyList: List[List[int]], n: int) -> bool:
 
 ### Finding Topological Ordering (Kahn's algo)
 
+```python
 def getTopoOrder(adjacencyList: List[List[int]], n: int) -> List[int]:
     """
     each node in the graph is represented by an index (int)
