@@ -181,8 +181,6 @@ def getTopoOrder(adjacencyList: List[List[int]], n: int) -> List[int]:
         list containing the topological ordering if it exists
         empty list otherwise
     """
-     # state[i] = 0 (not visited) | -1 (processing) | 1 (visited/finished) 
-    state = [0 for _ in range(n)]
     inDegree = [0 for _ in range(n)]
     for node in range(n):
         for neighbour in adjacencyList(node):
