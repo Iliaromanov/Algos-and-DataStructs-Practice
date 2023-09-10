@@ -130,8 +130,46 @@ def majorityElement(nums: List[int]) -> int:
     
 ----------------------------------------------------------------
 
-### Finding Cycle in Directed Graph / Getting Topological Ordering
+### Detecting Cycle in Directed Graph
+
+```python
+def detectCycle(adjacencyList: List[List[int]], n: int) -> bool:
+    """
+    each node in the graph is represented by an index (int)
+
+    Args:
+        n             - number of nodes in graph
+        adjacencyList - adjacency list representation of a directed graph
+
+    Returns:
+        True if graph contains a cycle
+        False otherwise
+    """
+     # state[i] = 0 (not visited) | -1 (processing) | 1 (visited/finished) 
+    state = [0 for _ in range(n)]
+    def hasCycle(node: int):
+        if state[node] == -1:
+            return True
+        if state[node] == 1:
+            return False
+
+        state[node] = -1
+        for outneighbor in adjacencyList[node]:
+            if hasCycle(outneighbor):
+                return True
+        state[node] = 1
+        return False
+
+    for node in range(n):
+        if hasCycle(node):
+            return True
+    return False
+```
+
+### Finding Topological Ordering
 
 Below Link explains DFS algo for finding cycle and BFS algo (Kahn's algo) for finding topo ordering.
 
 https://leetcode.com/problems/course-schedule/solutions/441722/python-99-time-and-100-space-collection-of-solutions-with-explanation/
+    
+----------------------------------------------------------------
