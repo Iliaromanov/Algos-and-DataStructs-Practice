@@ -13,10 +13,10 @@ def binary_search(array) -> int:
         pass
 
     left, right = 0, len(array)
-    while left < right:
+    while left <= right:
         mid = left + (right - left) // 2
         if condition(mid):
-            right = mid
+            right = mid - 1
         else:
             left = mid + 1
     return left # left is either index of found result or index of where the result would be located (if its not there)
