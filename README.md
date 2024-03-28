@@ -186,7 +186,7 @@ def getTopoOrder(adjacencyList: List[List[int]], n: int) -> List[int]:
         for neighbour in adjacencyList(node):
             inDegree[neighbor] += 1
 
-    que = deque([0])
+    que = deque()
             
     for node in range(n):
         if inDegree[node] == 0:
