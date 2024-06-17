@@ -1,3 +1,16 @@
+/*
+Time Complexity:
+O(n^2 * 2^n)
+- The number of possible partitions is the same as the number of
+possible outcomes of placing a "|" in between chars in s.
+there are n-1 such positions, and at each position we can either place "|" or not.
+Thus there is 2^(n-1) possible partitions
+
+the n^2 is for the loop in the backtracking and calling .substr inside it
+
+*/
+
+
 class Solution {
 public:
     vector<vector<string>> partition(string s) {
